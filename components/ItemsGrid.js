@@ -3,7 +3,7 @@ const ItemsGrid = () => {
   return (
     <div className="container mx-auto my-12">
       <h2 className=" font-hotpizza text-2xl mb-5">All</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 justify-items-center xl:justify-self-start ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 justify-items-center xl:justify-self-start ">
         <MenuItem
           mealImage="/assets/images/meal.png"
           iconImage="/assets/images/icon.png"
