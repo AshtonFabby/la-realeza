@@ -4,8 +4,8 @@ import CartButton from "./CartButton";
 
 const MenuItem = (props) => {
   return (
-    <Link href={"/order"}>
-      <div className=" w-[256px] h-[271px] bg-white rounded-xl cursor-pointer hover:shadow-md">
+    <Link href={`/order/${props.slug}`}>
+      <div className=" w-[256px]  bg-white rounded-xl cursor-pointer hover:shadow-md">
         <div className="menu-image w-[256px] h-[152px] relative">
           <div className="absolute top-0 left-0">
             <Image
@@ -27,11 +27,12 @@ const MenuItem = (props) => {
           </div>
         </div>
         <div className="content p-5">
+          <h3 className=" text-xl font-medium h-[56px]">{props.title}</h3>
           <div className=" flex justify-between">
-            <h3 className=" text-xl font-medium">{props.title}</h3>
+            <p className="text-lg mt-2">${props.price}</p>
             <CartButton />
           </div>
-          <p className="text-xs mt-2">{props.description}</p>
+
         </div>
       </div>
     </Link>

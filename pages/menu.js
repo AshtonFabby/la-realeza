@@ -11,6 +11,7 @@ const Menu = () => {
         <h2 className="font-hotpizza text-2xl">Welcome to Realeza</h2>
       </div>
       <RestaurantList />
+      <h2 className=" font-hotpizza text-2xl mb-5">All</h2>
       <ItemsGrid />
       <Weekly />
     </div>
