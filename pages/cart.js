@@ -2,6 +2,9 @@ import CartItem from "../components/cartItem";
 
 import Image from "next/image";
 
+import link from "next/link";
+import Link from "next/link";
+
 const Cart = () => {
   return (
     <div>
@@ -61,14 +64,20 @@ const Cart = () => {
             </button>
           </div>
         </div>
-        <div className=" flex gap-2">
-          <Image
-            src="/assets/svg/back-arrow.svg"
-            height={8}
-            width={14}
-            alt="back arrow"
-          />
-          <p className=" text-lg">Continue Shopping</p>
+        <div className=" container">
+          <Link href="/">
+            <a>
+              <div className=" flex gap-2">
+                <Image
+                  src="/assets/svg/back-arrow.svg"
+                  height={8}
+                  width={14}
+                  alt="back arrow"
+                />
+                <p className=" text-lg">Continue Shopping</p>
+              </div>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
