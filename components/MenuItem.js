@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { twoDecimals } from "../lib/helpers";
-import CartButton from "./CartButton";
+// import CartButton from "./CartButton";
+
+import { useCart } from "react-use-cart";
 
 const MenuItem = (props) => {
+  const { addItem } = useCart();
+
   return (
     <Link href={`/order/${props.dishId}`}>
       <a>
@@ -30,9 +34,18 @@ const MenuItem = (props) => {
           </div>
           <div className="content p-5">
             <h3 className=" text-xl font-medium h-[56px]">{props.title}</h3>
-            <div className=" flex justify-between">
+            <div className=" flex justify-between z-10">
               <p className="text-lg mt-2">{"$" + twoDecimals(props.price)}</p>
-              <CartButton />
+              {/* <Link href={"/cart"}> */}
+              <button className=" cursor-pointer w-10 h-10 bg-mustard-red rounded-full flex justify-center items-center">
+                <Image
+                  src="/assets/svg/white-cart.svg"
+                  height={22}
+                  width={22}
+                  alt="shopping cart "
+                />
+              </button>
+              {/* </Link> */}
             </div>
           </div>
         </div>

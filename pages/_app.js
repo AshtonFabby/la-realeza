@@ -1,14 +1,15 @@
-import '../styles/globals.css'
-
-import Layout from '../components/Layout'
+import "../styles/globals.css";
+import { CartProvider } from "react-use-cart";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
-  return(
-    <Layout>
-      <Component {...pageProps} />
-      
-    </Layout>
-)
+  return (
+    <CartProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </CartProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

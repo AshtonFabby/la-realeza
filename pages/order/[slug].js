@@ -1,11 +1,15 @@
 import axios from "axios";
 import Image from "next/image";
-
-import CartButton from "../../components/CartButton";
+import { useRouter } from "next/router";
 import { imageToUrl, twoDecimals } from "../../lib/helpers";
+
+import { useCart } from "react-use-cart";
 
 const Order = ({ dish }) => {
   const dishDetails = dish.data.attributes;
+  const router = useRouter();
+  const { addItem } = useCart();
+
   return (
     <div>
       <div className="container mx-auto">
@@ -32,12 +36,47 @@ const Order = ({ dish }) => {
               <h2 className=" font-medium text-xl capitalize">
                 {dishDetails.title}
               </h2>
-              <p className=" text-xl">
-                {"$" + twoDecimals(dishDetails.price)}{" "}
-              </p>
+              <p className=" text-xl">{"$" + twoDecimals(dishDetails.price)}</p>
             </div>
             <p className="mb-5">{dishDetails.description}</p>
-            <CartButton />
+            <div className=" flex justify-between ">
+              <button
+                onClick={() => {
+                  addItem(
+                    {
+                      id: dish.data.id,
+                      title: dishDetails.title,
+                      price: dishDetails.price,
+                    },
+                    1
+                  );
+                  router.push("/cart");
+                }}
+                className=" cursor-pointer w-10 h-10 bg-mustard-red rounded-full flex justify-center items-center"
+              >
+                <Image
+                  src="/assets/svg/white-cart.svg"
+                  height={22}
+                  width={22}
+                  alt="shopping cart "
+                />
+              </button>
+              <button
+                className="hover:text-mustard-red"
+                onClick={() => {
+                  addItem(
+                    {
+                      id: dish.data.id,
+                      title: dishDetails.title,
+                      price: dishDetails.price,
+                    },
+                    1
+                  );
+                }}
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>

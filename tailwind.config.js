@@ -6,23 +6,22 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily:{
-        'hotpizza':['hotpizza']
+      fontFamily: {
+        hotpizza: "Hot Pizza",
       },
       container: {
         padding: {
-          DEFAULT: '20px',
-          sm: '2rem',
-          lg: '4rem',
-          xl: '5rem',
-          '2xl': '6rem',
+          DEFAULT: "20px",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
+          "2xl": "6rem",
         },
       },
-      colors:{
-        'mustard-red': '#F92D0D'
-      }
+      colors: {
+        "mustard-red": "#F92D0D",
+      },
     },
-    
   },
   plugins: [],
-}
+};

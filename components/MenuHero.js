@@ -28,7 +28,7 @@ const MenuHero = () => {
             height={466}
             alt="man with pizza"
             className=""
-            src="/assets/svg/hero.svg"
+            src="/assets/svg/hero-02.svg"
           />
         </div>
       </div>

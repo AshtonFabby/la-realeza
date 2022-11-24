@@ -1,44 +1,50 @@
 import axios from "axios";
 import Image from "next/image";
-
 import { useState } from "react";
 
-const Register = () => {
-  const [username, setUserName] = useState("");
-  const [email, setEmail] = useState("");
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import Link from "next/link";
+
+const Login = () => {
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [messege, setMessege] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
 
-  const registerUser = async () => {
-    if (username == "" || password == "" || email == "" || username == "") {
-      setMessege("All fields needs to be filled");
+  const router = useRouter();
+
+  const loginUser = async () => {
+    if (identifier == "" || password == "") {
+      setMessege("username or password can't be empty");
     } else {
       try {
         const user = await axios.post(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local/register`,
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
           {
-            username: username,
-            email: email,
+            identifier: identifier,
             password: password,
           }
         );
 
         if (user.status === 200) {
+          Cookies.set("uid", user.data.user.id, { expires: 30 });
+          Cookies.set("logIn", true, { expires: 30 });
           axios.post("/api/login", { jwt: user.data.jwt });
           router.push("/");
+        } else {
+          setMessege("something went wrong");
         }
       } catch (error) {
-        // console.log(error.response);
-        setMessege("Please enter valid details");
+        // console.log(error);
+
+        setMessege("username or password is incorect");
       }
     }
   };
-
   return (
     <div className="container">
       <div className="content pt-[80px] md:pt-[150px]">
@@ -56,19 +62,12 @@ const Register = () => {
             <input
               type="text"
               name="username"
-              placeholder="User Name"
-              value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              placeholder="User Name or Password"
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
               className=" w-full rounded-lg h-10 mb-2 px-2"
             />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className=" w-full rounded-lg h-10 mb-2 px-2"
-            />
+
             <input
               type="password"
               name="password"
@@ -77,20 +76,22 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               className=" w-full rounded-lg h-10 mb-2 px-2"
             />
-            <input
-              type="password"
-              name="password-confirm"
-              placeholder="Password"
-              id="password-confirm"
-              className=" w-full rounded-lg h-10 mb-2 px-2"
-            />
+
             <button
               type="submit"
-              onClick={registerUser}
-              className=" text-center w-full bg-mustard-red h-10 rounded-xl text-white hover:bg-red-500 mt-2"
+              onClick={loginUser}
+              className=" text-center w-full bg-mustard-red h-10 rounded-xl text-white hover:bg-red-500 mt-2 mb-10"
             >
               Submit
             </button>
+
+            <Link href="/register">
+              <a>
+                <p className="hover:text-mustard-red duration-200 text-gray-800">
+                  I dont have an account
+                </p>
+              </a>
+            </Link>
           </form>
         </div>
       </div>
@@ -98,4 +99,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
