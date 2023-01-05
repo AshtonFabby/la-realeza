@@ -77,7 +77,7 @@ const AddAddress = ({ userAuth }) => {
             src="/assets/svg/hero.svg"
           />
           <form method="POST" className=" md:w-1/2" onSubmit={handleSubmit}>
-            <h2 className=" text-xl text-center my-5">Register</h2>
+            <h2 className=" text-xl text-center my-5">Add Addres</h2>
             <p className=" text-mustard-red my-3">{messege}</p>
             <input
               type="text"

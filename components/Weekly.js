@@ -1,20 +1,33 @@
 import Image from "next/image";
-const Weekly = () => {
+import { imageToUrl } from "../lib/helpers";
+const Weekly = (props) => {
   return (
     <div className="container mx-auto">
-      <div className="featured p-9 w-full h-[469px] bg-[url('/assets/images/featured.png')] bg-no-repeat bg-cover bg-center rounded-xl">
-        <div className="content flex items-center gap-8">
-          <Image
-            src="/assets/images/icon.png"
-            height={84}
-            width={84}
+      <div className={`featured w-full`}>
+        <div className="content flex items-center gap-8 mb-5">
+          {/* <Image
+            src={imageToUrl(
+              props.weekly.data[0].attributes.restaurant.data.attributes.logo
+            )}
+            height={64}
+            width={64}
             alt="icon"
-          />
+            className=" rounded-full"
+          /> */}
           <div>
-            <h3 className=" text-2xl text-white font-medium">Featured</h3>
-            <p className=" text-white text-lg"> meal of the week</p>
+            <h3 className=" text-2xl font-medium">Featured</h3>
+            <p className=" text-lg"> restaurant of the week</p>
           </div>
         </div>
+        <Image
+          src={imageToUrl(
+            props.weekly.data[0].attributes.restaurant.data.attributes.banner
+          )}
+          height={469}
+          width={1344}
+          alt="icon"
+          className="rounded-3xl"
+        />
       </div>
     </div>
   );

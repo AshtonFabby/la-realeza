@@ -15,7 +15,7 @@ const Cart = ({ user, userAuth }) => {
   const [payment, setPayment] = useState("ecocash");
   const { items, cartTotal, totalItems, emptyCart } = useCart();
   const addresses = user.addresses;
-
+  const router = useRouter();
   const placeOrder = async () => {
     // console.log("payment: " + payment);
     // console.log("address: " + address);

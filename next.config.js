@@ -8,6 +8,6 @@ module.exports = nextConfig;
 
 module.exports = {
   images: {
-    domains: ["la-realeza-api.fly.dev"],
+    domains: [process.env.NEXT_PUBLIC_STRAPI_ASSETS_DOMAIN],
   },
 };

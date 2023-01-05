@@ -1,4 +1,5 @@
 import axios from "axios";
+import Head from "next/head";
 import ItemsGrid from "../components/ItemsGrid";
 import MenuHero from "../components/MenuHero";
 import RestaurantList from "../components/RestaurantList";
@@ -6,7 +7,10 @@ import Weekly from "../components/Weekly";
 
 const Menu = ({ dishes, restaurants }) => {
   return (
-    <div>
+    <main>
+      <Head>
+        <title>Menu</title>
+      </Head>
       <MenuHero />
       <div className="container my-12 mx-auto">
         <h2 className="font-hotpizza text-2xl">Welcome to Realeza</h2>
@@ -16,7 +20,7 @@ const Menu = ({ dishes, restaurants }) => {
       <ItemsGrid dishes={dishes} />
 
       <Weekly />
-    </div>
+    </main>
   );
 };
 

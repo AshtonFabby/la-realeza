@@ -4,7 +4,8 @@ import Link from "next/link";
 const User = ({ user }) => {
   console.log(user);
   return (
-    <div className="pt-[80px] md:pt-[150px] container mx-auto">
+    <main className="pt-[80px] md:pt-[150px] container mx-auto">
+      <title>User</title>
       <h2 className=" font-hotpizza text-4xl">User Details</h2>
       <div className="content w-[624px] bg-white rounded-2xl mx-auto p-20 ">
         <div className="image">
@@ -23,25 +24,25 @@ const User = ({ user }) => {
           </svg>
           <h3 className=" font-medium text-center text-xl">{user.username}</h3>
           <h2 className="font-medium mb-3">Delivery address</h2>
-          <p>{user.addresses[0].address}</p>
-          <p>{user.addresses[0].street}</p>
-          <p>{user.addresses[0].city}</p>
-          <p className=" mb-5">{user.addresses[0].country}</p>
-          <Link href="/add_address" className="text-center w-min my-3">
-            add address
+          <p>{user?.addresses[0]?.address}</p>
+          <p>{user?.addresses[0]?.street}</p>
+          <p>{user?.addresses[0]?.city}</p>
+          <p className=" mb-5">{user?.addresses[0]?.country}</p>
+          <Link href="/add_address" className="text-center w-min my-2">
+            <a className=" text-mustard-red font-bold hover:text-black">
+              add address
+            </a>
           </Link>
-          <h2 className="font-medium mt-3">Payment Infomation</h2>
+          <h2 className="font-medium mt-3">Phone Number</h2>
 
-          <div className=" flex gap-52">
-            <div>
-              <span className=" text-blue-700">Eco</span>
-              <span className=" text-red-600">Cash</span>
-            </div>
-            <p>{user.phone_number}</p>
+          <p>{user.phone_number}</p>
+
+          <div className=" flex justify-center">
+            <button className="mt-5 hover:text-mustard-red">LogOut</button>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

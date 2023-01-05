@@ -5,7 +5,6 @@ const CartItem = (props) => {
   return (
     <div className="flex p-3 bg-white rounded-xl">
       <div className=" text-xs w-2/5 flex gap-2">
-        {/* <Image src={props.icon} alt="" height={30} width={30} /> */}
         <h3 className=" my-auto">{props.name}</h3>
       </div>
 

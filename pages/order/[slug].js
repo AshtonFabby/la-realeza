@@ -72,6 +72,7 @@ const Order = ({ dish }) => {
                     },
                     1
                   );
+                  alert("Item added to cart");
                 }}
               >
                 Add to Cart
