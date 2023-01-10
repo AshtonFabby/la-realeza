@@ -1,6 +1,5 @@
 import axios from "axios";
 import Head from "next/head";
-import CategoriesList from "../components/CategoriesList";
 import HeroSection from "../components/HeroSection";
 import ItemsGrid from "../components/ItemsGrid";
 import Weekly from "../components/Weekly";

@@ -5,9 +5,9 @@ const HeroSection = () => {
   return (
     <div className=' h-min bg-[url("/assets/images/header-bg.png")] bg-no-repeat bg-cover pt-[80px] md:pt-[150px]'>
       <div className=" flex flex-col-reverse md:flex-row items-center gap-10 container mx-auto pb-5">
-        <div className="right">
+        <div className="right mt-16 md:mt-0">
           <p className=" font-hotpizza text-5xl leading-[3.5rem] mb-6">
-            Food delivered <br /> the{" "}
+            Food delivered <br /> the
             <span className=" text-mustard-red">speed</span> <br /> of a click
           </p>
           <div className="buttons flex gap-5 flex-col lg:flex-row">
@@ -23,7 +23,7 @@ const HeroSection = () => {
             />
           </div>
         </div>
-        <div className="left ml-52 ">
+        <div className="left ml-52 hidden lg:block">
           <Image
             width={483}
             height={466}
