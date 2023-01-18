@@ -4,7 +4,7 @@ import ItemsGrid from "../../components/ItemsGrid";
 import Weekly from "../../components/Weekly";
 import { imageToUrl } from "../../lib/helpers";
 
-const Restaurant = ({ restaurant }) => {
+const Restaurant = ({ restaurant, weekly }) => {
   const restaurantDetails = restaurant.data[0].attributes;
 
   return (
@@ -26,7 +26,7 @@ const Restaurant = ({ restaurant }) => {
 
       <h2 className=" font-hotpizza text-2xl mb-5 container mt-12">All</h2>
       <ItemsGrid dishes={restaurantDetails.dishes} />
-      <Weekly />
+      <Weekly weekly={weekly} />
     </div>
   );
 };
@@ -36,12 +36,17 @@ export const getServerSideProps = async (pageContext) => {
   const response = await axios.get(
     `${process.env.STRAPI_PUBLIC_URL}/restaurants?filters[slug][$eq]=${pageSlug}&populate=deep,4`
   );
+  const response2 = await axios.get(
+    `${process.env.STRAPI_PUBLIC_URL}/weeklies?populate=deep,3`
+  );
 
   const restaurant = await response.data;
+  const weeklies = await response2.data;
 
   return {
     props: {
       restaurant: restaurant,
+      weekly: weeklies,
     },
   };
 };

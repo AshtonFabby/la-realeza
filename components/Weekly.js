@@ -5,15 +5,6 @@ const Weekly = (props) => {
     <div className="container mx-auto">
       <div className={`featured w-full`}>
         <div className="content flex items-center gap-8 mb-5">
-          {/* <Image
-            src={imageToUrl(
-              props.weekly.data[0].attributes.restaurant.data.attributes.logo
-            )}
-            height={64}
-            width={64}
-            alt="icon"
-            className=" rounded-full"
-          /> */}
           <div>
             <h3 className=" text-2xl font-medium">Featured</h3>
             <p className=" text-lg"> restaurant of the week</p>
