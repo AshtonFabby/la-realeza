@@ -11,7 +11,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [messege, setMessege] = useState("");
+  const [message, setMessage] = useState("");
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const Register = () => {
 
   const registerUser = async () => {
     if (username == "" || password == "" || email == "" || username == "") {
-      setMessege("All fields needs to be filled");
+      setMessage("All fields needs to be filled");
     } else {
       try {
         const user = await axios.post(
@@ -32,11 +32,13 @@ const Register = () => {
           }
         );
         axios.post("/api/login", { jwt: user.data.jwt });
+        Cookies.set("uid", user.data.user.id, { expires: 30 });
+        Cookies.set("logIn", true, { expires: 30 });
         router.push("/add_address");
       } catch (error) {
         console.log(error);
 
-        setMessege("Please enter valid details");
+        setMessage("Please enter valid details");
       }
     }
   };
@@ -57,7 +59,7 @@ const Register = () => {
           />
           <form method="POST" className=" md:w-1/2" onSubmit={handleSubmit}>
             <h2 className=" text-xl text-center my-5">Register</h2>
-            <p className=" text-mustard-red my-3">{messege}</p>
+            <p className=" text-mustard-red my-3">{message}</p>
             <input
               type="text"
               name="username"
@@ -93,7 +95,7 @@ const Register = () => {
             <input
               type="password"
               name="password-confirm"
-              placeholder="Password"
+              placeholder="Confirm Password"
               id="password-confirm"
               className=" w-full rounded-lg h-10 mb-2 px-2"
             />

@@ -10,7 +10,7 @@ const AddAddress = ({ userAuth }) => {
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
   const [country, setCountry] = useState("");
-  const [messege, setMessege] = useState("");
+  const [message, setMessage] = useState("");
   const [address, setAddress] = useState("");
 
   const handleSubmit = async (e) => {
@@ -28,14 +28,8 @@ const AddAddress = ({ userAuth }) => {
       country == "" ||
       address == ""
     ) {
-      setMessege("All fields needs to be filled");
+      setMessage("All fields needs to be filled");
     } else {
-      // console.log("name:" + name);
-      // console.log("street:" + street);
-      // console.log("country:" + country);
-      // console.log("city:" + city);
-      // console.log("address:" + address);
-
       const config = {
         headers: { Authorization: `Bearer ${userAuth}` },
       };
@@ -60,7 +54,7 @@ const AddAddress = ({ userAuth }) => {
         }
       } catch (error) {
         console.log(error.response);
-        setMessege("Please enter valid details");
+        setMessage("Please enter valid details");
       }
     }
   };
@@ -77,8 +71,8 @@ const AddAddress = ({ userAuth }) => {
             src="/assets/svg/hero.svg"
           />
           <form method="POST" className=" md:w-1/2" onSubmit={handleSubmit}>
-            <h2 className=" text-xl text-center my-5">Add Addres</h2>
-            <p className=" text-mustard-red my-3">{messege}</p>
+            <h2 className=" text-xl text-center my-5">Add Address</h2>
+            <p className=" text-mustard-red my-3">{message}</p>
             <input
               type="text"
               name="name"

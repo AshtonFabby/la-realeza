@@ -10,7 +10,7 @@ import Head from "next/head";
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
-  const [messege, setMessege] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const Login = () => {
 
   const loginUser = async () => {
     if (identifier == "" || password == "") {
-      setMessege("username or password can't be empty");
+      setMessage("username or password can't be empty");
     } else {
       try {
         const user = await axios.post(
@@ -37,12 +37,12 @@ const Login = () => {
           axios.post("/api/login", { jwt: user.data.jwt });
           router.push("/");
         } else {
-          setMessege("something went wrong");
+          setMessage("something went wrong");
         }
       } catch (error) {
         // console.log(error);
 
-        setMessege("username or password is incorect");
+        setMessage("username or password is incorrect");
       }
     }
   };
@@ -62,7 +62,7 @@ const Login = () => {
           />
           <form method="POST" className=" md:w-1/2" onSubmit={handleSubmit}>
             <h2 className=" text-xl text-center my-5">LogIn</h2>
-            <p className=" text-mustard-red my-3">{messege}</p>
+            <p className=" text-mustard-red my-3">{message}</p>
             <input
               type="text"
               name="username"
@@ -91,7 +91,7 @@ const Login = () => {
 
             <Link href="/register">
               <a className="hover:text-mustard-red duration-200 text-gray-800">
-                I dont have an account
+                I {"don't"} have an account
               </a>
             </Link>
           </form>

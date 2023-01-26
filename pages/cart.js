@@ -17,10 +17,6 @@ const Cart = ({ user, userAuth }) => {
   const addresses = user.addresses;
   const router = useRouter();
   const placeOrder = async () => {
-    // console.log("payment: " + payment);
-    // console.log("address: " + address);
-    // console.log("jwt: " + userAuth);
-
     if (totalItems == 0) {
       alert("Cart is Empty");
     } else {
@@ -97,8 +93,12 @@ const Cart = ({ user, userAuth }) => {
                 {"$" + twoDecimals(cartTotal)}
               </p>
             </div>
-            <p className=" text-sm mt-4 font-semibold">Delivery Address</p>
-
+            <div className=" flex justify-between items-center">
+              <p className=" text-sm mt-4 font-semibold">Delivery Address</p>
+              <Link href={"/add_address"}>
+                <a className=" text-mustard-red text-sm">add address</a>
+              </Link>
+            </div>
             <select
               name="address"
               id="address"
@@ -130,7 +130,8 @@ const Cart = ({ user, userAuth }) => {
               }}
               className=" w-full bg-white text-sm mt-4 mb-28 "
             >
-              <option value="ecocash">EcoCash</option>
+              {/* <option value="ecocash">EcoCash</option> */}
+              <option value="cash">Cash On Delivery</option>
             </select>
 
             <button

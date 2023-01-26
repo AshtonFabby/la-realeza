@@ -1,8 +1,16 @@
 import axios from "axios";
 import Link from "next/link";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const User = ({ user }) => {
-  console.log(user);
+  const router = useRouter();
+  const logOut = () => {
+    axios.get("/api/logout");
+    Cookies.remove("logIn");
+    Cookies.remove("uid");
+    router.push("/");
+  };
   return (
     <main className="pt-[80px] md:pt-[150px] container mx-auto">
       <title>User</title>
@@ -38,7 +46,9 @@ const User = ({ user }) => {
           <p>{user.phone_number}</p>
 
           <div className=" flex justify-center">
-            <button className="mt-5 hover:text-mustard-red">LogOut</button>
+            <button onClick={logOut} className="mt-5 hover:text-mustard-red">
+              LogOut
+            </button>
           </div>
         </div>
       </div>
