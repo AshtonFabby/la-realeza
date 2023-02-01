@@ -6,7 +6,7 @@ import { formatMyDate, twoDecimals } from "../lib/helpers";
 const History = ({ orders }) => {
   const ordersData = orders.data;
   return (
-    <div className=" container content pt-[80px] md:pt-[150px] h-[80vh]">
+    <div className=" container content pt-[100px] md:pt-[150px] h-[80vh]">
       <h1 className=" text-center text-2xl font-hotpizza">Order History</h1>
 
       <div className="top">
