@@ -15,7 +15,7 @@ const User = ({ user }) => {
     <main className="pt-[80px] md:pt-[150px] container mx-auto">
       <title>User</title>
       <h2 className=" font-hotpizza text-4xl">User Details</h2>
-      <div className="content w-[624px] bg-white rounded-2xl mx-auto p-20 ">
+      <div className="content w-full md:w-[624px] bg-white rounded-2xl mx-auto p-20 ">
         <div className="image">
           <svg
             className=" text-8xl hover:text-mustard-red mx-auto"

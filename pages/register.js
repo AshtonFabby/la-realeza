@@ -37,7 +37,7 @@ const Register = () => {
           Cookies.set("uid", user.data.user.id, { expires: 30 });
           Cookies.set("username", user.data.user.username, { expires: 30 });
           Cookies.set("logIn", true, { expires: 30 });
-          router.push("/add_address");
+          router.push("/user");
         }
       } catch (error) {
         // console.log(error.response);
