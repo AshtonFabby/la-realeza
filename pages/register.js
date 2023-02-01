@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -31,14 +32,17 @@ const Register = () => {
             password: password,
           }
         );
-        axios.post("/api/login", { jwt: user.data.jwt });
-        Cookies.set("uid", user.data.user.id, { expires: 30 });
-        Cookies.set("logIn", true, { expires: 30 });
-        router.push("/add_address");
+        if (user.status === 200) {
+          axios.post("/api/login", { jwt: user.data.jwt });
+          Cookies.set("uid", user.data.user.id, { expires: 30 });
+          Cookies.set("username", user.data.user.username, { expires: 30 });
+          Cookies.set("logIn", true, { expires: 30 });
+          router.push("/add_address");
+        }
       } catch (error) {
-        console.log(error);
+        // console.log(error.response);
 
-        setMessage("Please enter valid details");
+        setMessage(error.response.data.error.message);
       }
     }
   };

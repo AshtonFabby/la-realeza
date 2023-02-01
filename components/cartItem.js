@@ -3,15 +3,14 @@ import { useCart } from "react-use-cart";
 const CartItem = (props) => {
   const { removeItem } = useCart();
   return (
-    <div className="flex p-3 bg-white rounded-xl">
-      <div className=" text-xs w-2/5 flex gap-2">
-        <h3 className=" my-auto">{props.name}</h3>
-      </div>
+    <div className="flex p-3 bg-white rounded-xl justify-between">
+      <h3 className="text-xs w-2/5">{props.name}</h3>
 
-      <h3 className=" text-xs text-center w-1/5 my-auto">{props.quantity}</h3>
-      <h3 className=" text-xs text-center w-1/5 my-auto">{props.price}</h3>
-      <h3 className=" text-xs text-center w-1/5 my-auto">{props.price}</h3>
+      <h3 className=" text-xs  text-center w-1/6">{props.quantity}</h3>
+      <h3 className=" text-xs  text-center w-1/6">{props.price}</h3>
+      <h3 className=" text-xs  text-center w-1/6">{props.price}</h3>
       <button
+        className="w-1/6  flex justify-center"
         onClick={() => {
           removeItem(props.itemId);
         }}

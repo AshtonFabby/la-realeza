@@ -32,7 +32,9 @@ const MenuItem = (props) => {
           </div>
         </div>
         <div className="content p-5">
-          <h3 className=" text-xl font-medium h-[56px]">{props.title}</h3>
+          <h3 className=" capitalize text-xl font-medium h-[56px]">
+            {props.title}
+          </h3>
           <div className=" flex justify-between z-10">
             <p className="text-lg mt-2">{"$" + twoDecimals(props.price)}</p>
             <Link href={"/cart"}>

@@ -33,6 +33,7 @@ const Login = () => {
 
         if (user.status === 200) {
           Cookies.set("uid", user.data.user.id, { expires: 30 });
+          Cookies.set("username", user.data.user.username, { expires: 30 });
           Cookies.set("logIn", true, { expires: 30 });
           axios.post("/api/login", { jwt: user.data.jwt });
           router.push("/");
@@ -40,7 +41,7 @@ const Login = () => {
           setMessage("something went wrong");
         }
       } catch (error) {
-        // console.log(error);
+        // console.log(error.response.data.error.message);
 
         setMessage("username or password is incorrect");
       }

@@ -69,11 +69,11 @@ const Navbar = () => {
             </a>
           </Link>
 
-          <Link href="/about">
+          {/* <Link href="/history">
             <a className=" cursor-pointer hover:text-mustard-red ease-in-out duration-200 m-2">
-              About
+              Order History
             </a>
-          </Link>
+          </Link> */}
 
           <Link href="/contact">
             <a className=" cursor-pointer hover:text-mustard-red ease-in-out duration-200 m-2">
@@ -168,7 +168,7 @@ const Navbar = () => {
                     d="M7 22q-.825 0-1.412-.587Q5 20.825 5 20q0-.825.588-1.413Q6.175 18 7 18t1.412.587Q9 19.175 9 20q0 .825-.588 1.413Q7.825 22 7 22Zm10 0q-.825 0-1.412-.587Q15 20.825 15 20q0-.825.588-1.413Q16.175 18 17 18t1.413.587Q19 19.175 19 20q0 .825-.587 1.413Q17.825 22 17 22ZM6.15 6l2.4 5h7l2.75-5ZM3.625 17L6.6 11.6L3 4H1V2h3.25l.95 2h16.5l-4.975 9H8.1L7 15h12v2Zm4.925-6h7Z"
                   />
                 </svg>
-                <div className=" flex justify-center items-center rounded-full p-1 text-white bg-red-500 text-xs -mt-12 ml-6 absolute ">
+                <div className=" flex justify-center items-center rounded-full p-1 px-2 text-white bg-red-500 text-[9px] -mt-12 ml-6 absolute ">
                   {totalItems}
                 </div>
               </a>

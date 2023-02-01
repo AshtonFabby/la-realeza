@@ -30,11 +30,7 @@ const Cart = ({ user, userAuth }) => {
           {
             data: {
               name: user.username,
-              order: [
-                {
-                  order: items,
-                },
-              ],
+              order: items,
               address: address,
             },
           },
@@ -42,7 +38,7 @@ const Cart = ({ user, userAuth }) => {
         );
         if (order.status === 200) {
           emptyCart();
-          router.push("/");
+          router.push("/thankyou");
         }
       } catch (error) {
         console.log(error);
@@ -108,7 +104,7 @@ const Cart = ({ user, userAuth }) => {
               }}
               className=" w-full bg-white text-sm mt-4 "
             >
-              <option value="3">Self Collection</option>
+              <option value="3">Self Pick up</option>
               {addresses.map((address) => (
                 <option key={address.id} value={address.id}>
                   {address.name}

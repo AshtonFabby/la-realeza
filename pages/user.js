@@ -43,7 +43,11 @@ const User = ({ user }) => {
           </Link>
           <h2 className="font-medium mt-3">Phone Number</h2>
 
-          <p>{user.phone_number}</p>
+          <p className=" mb-5">{user.phone_number}</p>
+
+          <Link className="" href="/history">
+            <a className=" text-mustard-red hover:text-black ">View History</a>
+          </Link>
 
           <div className=" flex justify-center">
             <button onClick={logOut} className="mt-5 hover:text-mustard-red">

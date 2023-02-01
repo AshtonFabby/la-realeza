@@ -7,8 +7,16 @@ const HeroSection = () => {
       <div className=" flex flex-col-reverse md:flex-row items-center gap-10 container mx-auto pb-5">
         <div className="right mt-16 md:mt-0">
           <p className=" font-hotpizza text-5xl leading-[3.5rem] mb-6">
-            Food delivered <br /> the
-            <span className=" text-mustard-red">speed</span> <br /> of a click
+            Food delivered <br /> at the
+            <span className=" text-mustard-red"> speed</span> <br /> of a click{" "}
+            <span>
+              <Image
+                src={"/assets/svg/click.svg"}
+                alt="click"
+                height={40}
+                width={40}
+              />
+            </span>
           </p>
           <div className="buttons flex gap-5 flex-col lg:flex-row">
             <DownloadButton
