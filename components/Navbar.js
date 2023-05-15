@@ -68,12 +68,11 @@ const Navbar = () => {
               Menu
             </a>
           </Link>
-
-          {/* <Link href="/history">
+          <Link href="/services">
             <a className=" cursor-pointer hover:text-mustard-red ease-in-out duration-200 m-2">
-              Order History
+              Services
             </a>
-          </Link> */}
+          </Link>
 
           <Link href="/contact">
             <a className=" cursor-pointer hover:text-mustard-red ease-in-out duration-200 m-2">
@@ -82,7 +81,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="nav-end flex gap-5 sm:gap-2 justify-center items-center justify-items-center mt-5 sm:mt-0 md:hidden ">
-          {status == undefined ? (
+          {status === undefined ? (
             <Link href="/login">
               <a>Log In</a>
             </Link>
@@ -130,7 +129,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nav-end md:flex gap-5 sm:gap-2 justify-center items-center justify-items-center mt-5 sm:mt-0 hidden ">
-        {status == undefined ? (
+        {status === undefined ? (
           <Link href="/login">
             <a>Log In</a>
           </Link>

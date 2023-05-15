@@ -13,7 +13,7 @@ const Menu = ({ dishes, restaurants, weekly }) => {
       </Head>
       <MenuHero />
       <div className="container my-12 mx-auto">
-        <h2 className="font-hotpizza text-2xl">Welcome to Realeza</h2>
+        <h2 className="font-hotpizza text-2xl">Welcome to LaRealeza</h2>
       </div>
       <RestaurantList restaurants={restaurants} />
       <h2 className=" font-hotpizza text-2xl mb-5 container mt-12">All</h2>

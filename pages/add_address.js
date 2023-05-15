@@ -1,8 +1,8 @@
 import axios from "axios";
 import Image from "next/image";
 import Cookies from "js-cookie";
-import { useState } from "react";
-import { useRouter } from "next/router";
+import {useState} from "react";
+import {useRouter} from "next/router";
 
 const AddAddress = ({ userAuth }) => {
   const router = useRouter();
@@ -22,11 +22,11 @@ const AddAddress = ({ userAuth }) => {
     // console.log(uid);
 
     if (
-      name == "" ||
-      street == "" ||
-      city == "" ||
-      country == "" ||
-      address == ""
+      name === "" ||
+      street === "" ||
+      city === "" ||
+      country === "" ||
+      address === ""
     ) {
       setMessage("All fields needs to be filled");
     } else {
@@ -50,7 +50,7 @@ const AddAddress = ({ userAuth }) => {
         );
 
         if (user.status === 200) {
-          router.push("/user");
+          await router.push("/user");
         }
       } catch (error) {
         console.log(error.response);
@@ -132,9 +132,7 @@ export default AddAddress;
 export const getServerSideProps = async (context) => {
   const { req } = context;
 
-  const jwt = req.cookies["jwt"];
-
-  const token = jwt;
+  const token = req.cookies["jwt"];
 
   return {
     props: {

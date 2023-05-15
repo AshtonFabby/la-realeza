@@ -32,7 +32,7 @@ const MenuItem = (props) => {
           </div>
         </div>
         <div className="content p-5">
-          <h3 className=" capitalize text-xl font-medium h-[56px]">
+          <h3 className=" lowercase text-xl font-medium h-[56px]">
             {props.title}
           </h3>
           <div className=" flex justify-between z-10">

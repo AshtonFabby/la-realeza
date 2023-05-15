@@ -1,7 +1,6 @@
 import axios from "axios";
-import CartItem from "../components/cartItem";
 import HistoryItem from "../components/historyItem";
-import { formatMyDate, twoDecimals } from "../lib/helpers";
+import {formatMyDate, twoDecimals} from "../lib/helpers";
 
 const History = ({ orders }) => {
   const ordersData = orders.data;
@@ -50,9 +49,7 @@ export const getServerSideProps = async (context) => {
 
   const username = req.cookies["username"];
 
-  const jwt = req.cookies["jwt"];
-
-  const token = jwt;
+  const token = req.cookies["jwt"];
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };

@@ -3,21 +3,21 @@ import CartItem from "../components/cartItem";
 import Image from "next/image";
 
 import Link from "next/link";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 
-import { useCart } from "react-use-cart";
-import { twoDecimals } from "../lib/helpers";
+import {useCart} from "react-use-cart";
+import {twoDecimals} from "../lib/helpers";
 import axios from "axios";
-import { useState } from "react";
+import {useState} from "react";
 
 const Cart = ({ user, userAuth }) => {
   const [address, setAddress] = useState(3);
-  const [payment, setPayment] = useState("ecocash");
+  const [payment, setPayment] = useState("EcoCash");
   const { items, cartTotal, totalItems, emptyCart } = useCart();
   const addresses = user.addresses;
   const router = useRouter();
   const placeOrder = async () => {
-    if (totalItems == 0) {
+    if (totalItems === 0) {
       alert("Cart is Empty");
     } else {
       const config = {
@@ -38,7 +38,7 @@ const Cart = ({ user, userAuth }) => {
         );
         if (order.status === 200) {
           emptyCart();
-          router.push("/thankyou");
+          await router.push("/thank_you");
         }
       } catch (error) {
         console.log(error);
@@ -48,8 +48,8 @@ const Cart = ({ user, userAuth }) => {
 
   return (
     <div>
-      <div className="pt-[80px] md:pt-[150px]">
-        <h1 className=" text-2xl mb-[50px] container mx-auto">Order details</h1>
+      <div className="pt-[150px]">
+        <h1 className=" text-2xl mb-[50px] container mx-auto">Your Order</h1>
 
         <div className="container mx-auto md:flex gap-5">
           <div className="top lg:w-2/3">
@@ -81,7 +81,7 @@ const Cart = ({ user, userAuth }) => {
               ))}
             </div>
           </div>
-          <div className="bottom mt-5 w-full md:w-[348px] p-3 bg-white rounded-xl py-8 md:p-7 lg:w-1/3">
+          <div className="mb-10 mt-5 w-full md:w-[348px] p-3 bg-white rounded-xl py-8 md:p-7 lg:w-1/3">
             <h2 className=" font-semibold">Order summary</h2>
             <div className=" flex justify-between mt-8">
               <p className=" text-sm">Grand Total</p>
@@ -165,9 +165,7 @@ export const getServerSideProps = async (context) => {
 
   const userId = req.cookies["uid"];
 
-  const jwt = req.cookies["jwt"];
-
-  const token = jwt;
+  const token = req.cookies["jwt"];
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };

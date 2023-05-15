@@ -19,7 +19,7 @@ const Register = () => {
   };
 
   const registerUser = async () => {
-    if (username == "" || password == "" || email == "" || username == "") {
+    if (username === "" || password === "" || email === "" || username === "") {
       setMessage("All fields needs to be filled");
     } else {
       try {
@@ -33,11 +33,11 @@ const Register = () => {
           }
         );
         if (user.status === 200) {
-          axios.post("/api/login", { jwt: user.data.jwt });
+          await axios.post("/api/login", {jwt: user.data.jwt});
           Cookies.set("uid", user.data.user.id, { expires: 30 });
           Cookies.set("username", user.data.user.username, { expires: 30 });
           Cookies.set("logIn", true, { expires: 30 });
-          router.push("/user");
+          await router.push("/user");
         }
       } catch (error) {
         // console.log(error.response);

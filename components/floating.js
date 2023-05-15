@@ -1,20 +1,18 @@
 const Floating = () => {
   return (
-    <div className=" container  my-2">
-      <div className=" bg-red-50 py-5 px-5 text-center rounded-2xl">
-        <p className=" text-neutral-700">
+
+        <p className=" ">
           Contact us on{" "}
-          <a href="tel:+263777095954" className=" text-mustard-red">
+          <a href="tel:+263777095954" className=" font-medium">
             +263 77 709 5954
           </a>{" "}
           or send us an email on{" "}
-          <a href="mailto:info@larealeza.co.zw" className=" text-mustard-red">
+          <a href="mailto:info@larealeza.co.zw" className=" font-medium">
             info@larealeza.co.zw
           </a>{" "}
           to register your restaurant on our platform
         </p>
-      </div>
-    </div>
+
   );
 };
 

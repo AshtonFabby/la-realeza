@@ -19,7 +19,7 @@ const Login = () => {
   const router = useRouter();
 
   const loginUser = async () => {
-    if (identifier == "" || password == "") {
+    if (identifier === "" || password === "") {
       setMessage("username or password can't be empty");
     } else {
       try {

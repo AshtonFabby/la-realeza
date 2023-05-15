@@ -17,7 +17,7 @@ const Weekly = (props) => {
           height={469}
           width={1344}
           alt="icon"
-          className="rounded-3xl"
+          className="rounded-2xl"
         />
       </div>
     </div>
