@@ -16,7 +16,11 @@ const Contact = () => {
             className=""
             src="/assets/svg/hero.svg"
           />
-          <form method="POST" className=" md:w-1/2">
+          <form
+            action="https://formsubmit.co/bukhosincube@larealeza.co.zw"
+            method="POST"
+            className=" md:w-1/2"
+          >
             <h2 className=" text-xl text-center my-5">Send us a message</h2>
 
             <input
