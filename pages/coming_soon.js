@@ -1,11 +1,9 @@
-const Thank_you = () => {
+const ComingSoon = () => {
   return (
     <div className=" container content pt-[80px] md:pt-[150px] h-[80vh]">
-      <p className=" text-center text-2xl">
-        Thank you. Your order has been placed
-      </p>
+      <p className=" text-center text-2xl">Coming Soon</p>
     </div>
   );
 };
 
-export default Thank_you;
+export default ComingSoon;

@@ -22,7 +22,7 @@ const Services = () => {
             <h4 className="md:text-4xl text-3xl font-bold">
               Your food is just one click away
             </h4>
-            <Link href="/coming_soon">
+            <Link href="/">
               <a>
                 <button className="bg-white p-2 px-4 rounded-lg mt-8">
                   Visit Shop
